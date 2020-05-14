@@ -1,0 +1,22 @@
+{
+    "name": "darkness",
+    "displayName": "darkness",
+    "description": "yet another dark theme",
+    "version": "0.1.0",
+    "publisher": "steve-down",
+    "engines": {
+        "vscode": "^1.45.0"
+    },
+    "categories": [
+        "Themes"
+    ],
+    "contributes": {
+        "themes": [
+            {
+                "label": "darkness",
+                "uiTheme": "vs-dark",
+                "path": "./themes/darkness-color-theme.json"
+            }
+        ]
+    }
+}
