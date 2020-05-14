@@ -1,0 +1,22 @@
+{
+    "name": "mc-dlt",
+    "displayName": "McDLT color theme",
+    "description": "Another VS Code dark theme that tries to stay warm and cool, like the MCDLT",
+    "version": "1.0.0",
+    "publisher": "steve-down",
+    "engines": {
+        "vscode": "^1.45.0"
+    },
+    "categories": [
+        "Themes"
+    ],
+    "contributes": {
+        "themes": [
+            {
+                "label": "mc-dlt",
+                "uiTheme": "vs-dark",
+                "path": "./themes/mc-dlt-color-theme.json"
+            }
+        ]
+    }
+}
