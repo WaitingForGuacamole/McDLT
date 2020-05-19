@@ -15,7 +15,7 @@
     "icon": "McDLT.png",
     "galleryBanner": {
         "color": "#183050",
-        "theme": "light"
+        "theme": "dark"
     },
     "repository": {
         "type": "git",
