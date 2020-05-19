@@ -13,6 +13,10 @@
         "Themes"
     ],
     "icon": "McDLT.png",
+    "galleryBanner": {
+        "color": "#183050",
+        "theme": "light"
+    },
     "repository": {
         "type": "git",
         "url": "https://github.com/WaitingForGuacamole/McDLT.git"

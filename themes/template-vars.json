@@ -10,15 +10,15 @@
   "listHoverBackground": "#22436e",
   "matchBackground": "#7080b0",
   "menuBackground": "#1d2535",
+  "scrollbarBackground": "#c0d0f0",
+  "selectionBackground": "#1866af",
   "controlBorder": "#909079",
   "panelBorder": "#183050",
   "tabBorder": "#48483c",
   "errorForeground": "#f03e3e",
   "inactiveForeground": "#909079",
   "primaryForeground": "#ffffce",
-  "scrollbarBackground": "#c0d0f0",
   "secondaryForeground": "#d6d6ae",
-  "selectionBackground": "#1866af",
   "constantValue": "#daae76",
   "keywordName": "#b2dffa"
 }
