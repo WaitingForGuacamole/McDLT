@@ -4,6 +4,8 @@
     "description": "A VS Code dark theme that's both warm and cool, like the McDLT",
     "version": "1.1.0",
     "publisher": "WaitingForGuacamole",
+    "license": "LICENSE.md",
+    "readme": "README.md",
     "engines": {
         "vscode": "^1.45.0"
     },
