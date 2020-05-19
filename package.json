@@ -10,8 +10,18 @@
     "categories": [
         "Themes"
     ],
-    "icon": "./extension/McDLT.png",
-    "keywords": ["McDLT", "theme", "cool", "warm", "dark"],
+    "icon": "https://github.com/WaitingForGuacamole/McDLT/blob/master/images/McDLT.png",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/WaitingForGuacamole/McDLT.git"
+    },
+    "keywords": [
+        "McDLT",
+        "theme",
+        "cool",
+        "warm",
+        "dark"
+    ],
     "scripts": {
         "vscode:prepublish": "pwsh -NoProfile ./PrePublish.ps1 -TemplateFile ./themes/template-theme.json -VariableFile ./themes/template-vars.json -OutputFile ./themes/mc-dlt-color-theme.json -Force"
     },
