@@ -10,7 +10,7 @@
     "categories": [
         "Themes"
     ],
-    "icon": "https://github.com/WaitingForGuacamole/McDLT/blob/master/images/McDLT.png",
+    "icon": "images/McDLT.png",
     "repository": {
         "type": "git",
         "url": "https://github.com/WaitingForGuacamole/McDLT.git"
