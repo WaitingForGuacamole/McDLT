@@ -1,19 +1,25 @@
 {
     "name": "mc-dlt",
     "displayName": "McDLT",
-    "description": "Another VS Code dark theme that tries to stay warm and cool, like the MCDLT",
-    "version": "1.0.0",
-    "publisher": "steve-down",
+    "description": "A VS Code dark theme that's both warm and cool, like the McDLT",
+    "version": "1.1.0",
+    "publisher": "WaitingForGuacamole",
     "engines": {
         "vscode": "^1.45.0"
     },
     "categories": [
         "Themes"
     ],
+    "icon": "./extension/McDLT.png",
+    "keywords": ["McDLT", "theme", "cool", "warm", "dark"],
+    "scripts": {
+        "vscode:prepublish": "pwsh -NoProfile ./PrePublish.ps1 -TemplateFile ./themes/template-theme.json -VariableFile ./themes/template-vars.json -OutputFile ./themes/mc-dlt-color-theme.json -Force"
+    },
+    "qna": false,
     "contributes": {
         "themes": [
             {
-                "label": "mc-dlt",
+                "label": "McDLT",
                 "uiTheme": "vs-dark",
                 "path": "./themes/mc-dlt-color-theme.json"
             }
