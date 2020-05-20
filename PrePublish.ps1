@@ -15,11 +15,11 @@
 [CmdletBinding()]
 Param(
     [Parameter(Mandatory = $true)]
-    [String] $TemplateFile,
+    [String] $Template,
     [Parameter(Mandatory = $true)]
-    [String] $VariableFile,
+    [String] $Variables,
     [Parameter(Mandatory = $true)]
-    [String] $OutputFile,
+    [String] $Output,
     [Parameter(Mandatory = $false)]
     [Switch] $Force = $false
 )
@@ -28,18 +28,18 @@ Param(
 
 # Ensure all files are input, template, output files are valid
 
-if (!(Test-Path $TemplateFile)) {
-    Write-Error ("Unable to find {0}" -f $TemplateFile)
+if (!(Test-Path $Template)) {
+    Write-Error ("Unable to find {0}" -f $Template)
     return
 }
 
-if (!(Test-Path $VariableFile)) {
-    Write-Error ("Unable to find {0}" -f $VariableFile)
+if (!(Test-Path $Variables)) {
+    Write-Error ("Unable to find {0}" -f $Variables)
     return 
 }
 
-if ((Test-Path $OutputFile) -and !$Force) {
-    Write-Error ("Output file {0} exists. Use -Force to overwrite.")
+if ((Test-Path $Output) -and !$Force) {
+    Write-Error ("Output file {0} exists. Use -Force to overwrite." -f $Output)
     return 
 }
 
@@ -49,16 +49,16 @@ if ((Test-Path $OutputFile) -and !$Force) {
 
 # Load and transform input, Load template
 
-$template = Get-Content $TemplateFile
-$vars = Get-Content $VariableFile | ConvertFrom-JSON -AsHashtable
+$templateContent = Get-Content $Template 
+$vars = Get-Content $Variables | ConvertFrom-JSON -AsHashtable
 
-if (!$template) {
-    Write-Error ("Unable to load template content from {0}" -f $TemplateFile)
+if (!$templateContent) {
+    Write-Error ("Unable to load template content from {0}" -f $Template)
     return
 }
 
 if (!$vars) {
-    Write-Error ("Unable to evaluate variables in {0}" -f $VariableFile)
+    Write-Error ("Unable to evaluate variables in {0}" -f $Variables)
     return
 }
 
@@ -73,10 +73,10 @@ foreach ($varKey in $vars.GetEnumerator()) {
     $var = $vars[$varName]
 
     # globally replace name reference with value
-    $template = $template.Replace("`${$varName}", $var)
+    $templateContent = $templateContent.Replace("`${$varName}", $var)
 }
 
 # Write processed output
-Set-Content -Path $OutputFile -Value $template -Force
+Set-Content -Path $Output -Value $templateContent -Force
 
 #endregion

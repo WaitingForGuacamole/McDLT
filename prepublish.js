@@ -1,6 +1,22 @@
+// PrePublish.js
+//
+// Perform ${ variable } substitution in an arbitrary text file
+//
+// Invoked by vscode: prepublish script reference in package.json
+// Facilitates consistent application of theme colors
+// Allows semantic naming of values
+//
+// To create custom themes,
+//   Create a theme template - this can be a theme file from a Yeoman generator
+//   Create a variables file - this is a JSON hashtable mapping names to values
+//   Alter the theme template to replace "#RRGGBBAA" strings with "${variableName}" references
+//   Run this script after changing variable values or theme variable references
+//
 const args = require('command-line-args');
 const { exception } = require('console');
 const { format } = require('util');
+const fs = require('fs');
+
 const optionDefs = [
     { name: 'verbose', alias: 'v', type: Boolean },
     { name: 'variables', type: String },
@@ -14,7 +30,6 @@ const options = args(optionDefs, { stopAtFirstUnknown: true });
 if (options.help) {
     usage();
 } else {
-    const fs = require('fs');
     if (fs.existsSync(options.output) && ! options.force) {
         console.error(format("--output %s: file exists, use --force to overwrite", options.output));
         return;
@@ -50,8 +65,8 @@ function usage() {
     const usage = require('command-line-usage')
     const sections = [
         {
-            header: 'PreProcess',
-            content: 'Generates output using a template file and JSON ${variable} substitution'
+            header: 'PrePublish',
+            content: 'Generates output using a template file and JSON \\$\\{variable\\} substitution'
         },
         {
             header: 'Options',
@@ -64,7 +79,7 @@ function usage() {
                 {
                     name: 'template',
                     typeLabel: '{underline file}',
-                    description: 'A text file containing a references to  ${name}/value pairs'
+                    description: 'A text file containing a references to \\$\\{name\\}/value pairs'
                 },
                 {
                     name: 'output',
@@ -85,5 +100,7 @@ function usage() {
                 }
             ]
         }
-    ]
+    ];
+
+    console.log(usage(sections));
 }
