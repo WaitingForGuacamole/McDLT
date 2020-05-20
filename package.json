@@ -29,7 +29,7 @@
         "dark"
     ],
     "scripts": {
-        "vscode:prepublish": "pwsh -NoProfile ./PrePublish.ps1 -TemplateFile ./themes/template-theme.json -VariableFile ./themes/template-vars.json -OutputFile ./themes/mc-dlt-color-theme.json -Force"
+        "vscode:prepublish": "node ./PrePublish.js --template ./themes/template-theme.json --variables ./themes/template-vars.json --output ./themes/mc-dlt-color-theme.json --force --verbose"
     },
     "qna": false,
     "contributes": {
@@ -40,5 +40,9 @@
                 "path": "./themes/mc-dlt-color-theme.json"
             }
         ]
+    },
+    "dependencies": {
+        "command-line-args": "^5.1.1",
+        "command-line-usage": "^6.1.0"
     }
 }

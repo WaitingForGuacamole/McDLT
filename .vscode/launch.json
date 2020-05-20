@@ -10,7 +10,26 @@
       "type": "extensionHost",
       "request": "launch",
       "runtimeExecutable": "${execPath}",
-      "args": ["--extensionDevelopmentPath=${workspaceFolder}"]
+      "args": [
+        "--extensionDevelopmentPath=${workspaceFolder}"
+      ]
+    },
+    {
+      "name": "Node.js: PrePublish theme",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/prepublish.js",
+      "cwd": "${workspaceFolder}",
+      "args": [
+        "--variables",
+        "./themes/template-vars.json",
+        "--template",
+        "./themes/template-theme.json",
+        "--output",
+        "./themes/mc-dlt-color-theme.json",
+        "--force",
+        "--verbose"
+      ]
     },
     {
       "name": "PowerShell Launch Current File",
